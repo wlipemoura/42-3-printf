@@ -3,3 +3,6 @@
 # If your project allows you to use your libft, you must copy its sources and its
 # 	associated Makefile in a libft folder with its associated Makefile. Your project’s
 # 	Makefile must compile the library by using its Makefile, then compile the project.
+
+all:
+	echo "Hello!"
