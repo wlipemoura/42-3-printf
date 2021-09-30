@@ -16,9 +16,9 @@ int	main(void)
 	i = 42;
 	d = 420;
 	l = 2294967290; // Buscar qual o menor negativo que o unsigned converte entre -2000000000 -3000000000
-	printf("Original: %s\nc = %c\nh = %d\ni = %i\nd = %d\n%%\nlong: %u\n", str, c, h, i, d, l);
+	printf("Original: %s\n1c = %c\n2h = %d\n3i = %i\n4d = %d\n%%\n5ulong: %u\n6hex = %x\n7HEX = %X\n8p = %p\n", str, c, h, i, d, l, d, d, str);
 	ft_printf("--------------------\n");
-	ft_printf("Generico: %s\nc = %c\nh = %d\ni = %i\nd = %d\n%%\nlong: %u\n", str, c, h, i, d, l);
+	ft_printf("Generico: %s\n1c = %c\n2h = %d\n3i = %i\n4d = %d\n%%\n5ulong: %u\n6hex = %x\n7HEX = %X\n8p = %p\n", str, c, h, i, d, l, d, d, str);
 //	printf("Original: %c\n", c);
 //	ft_printf("Generica: %c\n", c);
 	return (0);

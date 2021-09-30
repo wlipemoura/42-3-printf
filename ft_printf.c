@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
+/*   Updated: 2021/09/30 17:50:16 by wfelipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //PROJECT RULES
 
 //It must not do the buffer management like the real printf
 //It will manage the following conversions: cspdiuxX%
 //It will be compared with the real printf
-//You must use the command ar to create your librairy, using the command libtool
+//You must use the command ar to create your library, using the command libtool
 //	is forbidden.
 
 //Conversions
@@ -40,19 +52,22 @@
 //		2.2 else write(1, fmt, 1)
 
 //#include "printf.h"
-#include "libft/libft.h"
+#include "../../42-1-libft-complete/42-1-libft/libft.h"
 #include <stdarg.h> // va_start, va_end, va_copy and va_arg. type va_list
 
-int	placeholder_identifier(const char **fmt, va_list ap);
+static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars);
+char	*ft_itoa_address(void *address);
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list ap;
+	int		*printed_chars;
 
+	*printed_chars = 0;
 	va_start(ap, fmt);
 	while (*fmt)
 	{
-		if (placeholder_identifier(&fmt, ap))
+		if (placeholder_identifier(&fmt, ap, printed_chars))
 		{
 			fmt++;
 			continue;
@@ -62,24 +77,33 @@ int	ft_printf(const char *fmt, ...)
 	}
 
 	va_end(ap);
-	return (0);
+	return (printed_chars);
 }
 
-int	placeholder_identifier(const char **fmt, va_list ap)
+static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 {
 	if (**fmt == '%')
 	{
 		(*fmt)++;
 		if (**fmt == 's')
-			ft_putstr_fd(va_arg(ap, char *), 1);
+			cnt_chars += ft_putstr(va_arg(ap, char *), 1);
 		else if (**fmt == 'c')
-			ft_putchar_fd(va_arg(ap, int), 1); // Por que não aceita tipo char?
+			cnt_chars += ft_putchar(va_arg(ap, int), 1); // Por que não aceita tipo char?
 		else if (**fmt == 'd' || **fmt == 'i')
-			ft_putnbr_fd(va_arg(ap, int), 1);
+			cnt_chars += ft_putnbr(va_arg(ap, int), 1);
 		else if (**fmt == '%')
+		{
 			write(1, "%", 1);
+			cnt_chars++;
+		}
 		else if (**fmt == 'u')
-			ft_putunbr_fd(va_arg(ap, int), 1);
+			cnt_chars += wm_putunbr(va_arg(ap, int), 1);
+		else if (**fmt == 'x')
+			cnt_chars += ft_putstr(wm_itoa_base(va_arg(ap, int), 16), 1);
+		else if (**fmt == 'X')
+			cnt_chars += ft_putstr(wm_itoa_base_upper(va_arg(ap, int), 16), 1);
+		else if (**fmt == 'p')
+			cnt_chars += ft_putstr(ft_itoa_address(va_arg(ap, void *)), 1);
 		return (1);
 	}
 	return (0);
