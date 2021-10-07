@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_putnbrm.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:07 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/30 18:35:09 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/07 18:25:19 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "../../42-1-libft-complete/42-1-libft/libft.h"
 
 static int    ft_count_digit(long int c, int base)
 {
@@ -28,6 +29,7 @@ static int    ft_count_digit(long int c, int base)
     }
     return (len);
 }
+
 void	string_filler(char **ptr, long int n_cpy, int signal)
 {
     if (!n_cpy)
@@ -41,7 +43,7 @@ void	string_filler(char **ptr, long int n_cpy, int signal)
 		*(--*ptr) = '-';
 }
 
-int    ft_putnbr(int number, int fd)
+int    ft_putnbrm(int number, int fd)
 {
     char                *ptr;
     char                *str;
@@ -65,19 +67,6 @@ int    ft_putnbr(int number, int fd)
     return (len + signal);
 }
 
-int	ft_putchar(char c, int fd)
-{
-	write (fd, &c, 1);
-	return(1);
-}
-
-int	ft_putstr(char *s, int fd)
-{
-	if (!s)
-		return ;
-	write (fd, s, ft_strlen(s));
-	return(ft_strlen(s));
-}
 
 // int	main(void)
 // {

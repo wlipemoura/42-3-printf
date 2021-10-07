@@ -1,5 +1,7 @@
 #include "../../42-1-libft-complete/42-1-libft/libft.h"
 #include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 char	*ft_itoa_address(void *address)
 {
@@ -10,20 +12,20 @@ char	*ft_itoa_address(void *address)
 
 	prefix = "0x";
 	new_variable = (unsigned long) address;
-	temp = wm_itoa_base(new_variable, 16);
+	temp = ft_itoa_base(new_variable, 16);
 	returning= ft_strjoin(prefix, temp);
 	free(temp);
 	return (returning);
 }
 
-// int	main(void)
-// {
-// 	char *teste;
-// 	char *ptr;
+int	main(void)
+{
+	char *teste;
+	char *ptr;
 
-// 	teste = "adc";
-// 	ptr = ft_itoa_address(&teste);
-// 	printf("%p\n", &teste);
-// 	printf("%s\n", ptr);
-// 	free(ptr);
-// }
+	teste = "a";
+	ptr = ft_itoa_address(&teste);
+	printf("%p\n", &teste);
+	printf("%s\n", ptr);
+	free(ptr);
+}

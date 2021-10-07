@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/09/30 17:50:16 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/07 20:35:31 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,27 @@
 //#include "printf.h"
 #include "../../42-1-libft-complete/42-1-libft/libft.h"
 #include <stdarg.h> // va_start, va_end, va_copy and va_arg. type va_list
+# include <unistd.h>
+# include <stdlib.h>
+#include <stdio.h>
 
 static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars);
 char	*ft_itoa_address(void *address);
+int    ft_putnbrm(int number, int fd);
+int	ft_putcharm(char c, int fd);
+int	ft_putstrm(char *s, int fd);
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list ap;
-	int		*printed_chars;
+	int 	printed_chars;
 
-	*printed_chars = 0;
+	printed_chars = 0;
+	//printf("teste aqui1\n");
 	va_start(ap, fmt);
 	while (*fmt)
 	{
-		if (placeholder_identifier(&fmt, ap, printed_chars))
+		if (placeholder_identifier(&fmt, ap, &printed_chars))
 		{
 			fmt++;
 			continue;
@@ -75,8 +82,8 @@ int	ft_printf(const char *fmt, ...)
 		write(1, fmt, 1);
 		fmt++;
 	}
-
 	va_end(ap);
+	//printf("teste aqui2\n");
 	return (printed_chars);
 }
 
@@ -86,24 +93,24 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 	{
 		(*fmt)++;
 		if (**fmt == 's')
-			cnt_chars += ft_putstr(va_arg(ap, char *), 1);
+			cnt_chars += ft_putstrm(va_arg(ap, char *), 1);
 		else if (**fmt == 'c')
-			cnt_chars += ft_putchar(va_arg(ap, int), 1); // Por que não aceita tipo char?
+			cnt_chars += ft_putcharm(va_arg(ap, int), 1); // Por que não aceita tipo char?
 		else if (**fmt == 'd' || **fmt == 'i')
-			cnt_chars += ft_putnbr(va_arg(ap, int), 1);
+			cnt_chars += ft_putnbrm(va_arg(ap, int), 1);
 		else if (**fmt == '%')
 		{
 			write(1, "%", 1);
 			cnt_chars++;
 		}
 		else if (**fmt == 'u')
-			cnt_chars += wm_putunbr(va_arg(ap, int), 1);
+			cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
 		else if (**fmt == 'x')
-			cnt_chars += ft_putstr(wm_itoa_base(va_arg(ap, int), 16), 1);
+			cnt_chars += ft_putstrm(wm_itoa_base(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'X')
-			cnt_chars += ft_putstr(wm_itoa_base_upper(va_arg(ap, int), 16), 1);
+			cnt_chars += ft_putstrm(wm_itoa_base_upper(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'p')
-			cnt_chars += ft_putstr(ft_itoa_address(va_arg(ap, void *)), 1);
+			cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, void *)), 1);
 		return (1);
 	}
 	return (0);
