@@ -18,14 +18,14 @@ char	*ft_itoa_address(void *address)
 	return (returning);
 }
 
-int	main(void)
-{
-	char *teste;
-	char *ptr;
+// int	main(void)
+// {
+// 	char *teste;
+// 	char *ptr;
 
-	teste = "a";
-	ptr = ft_itoa_address(&teste);
-	printf("%p\n", &teste);
-	printf("%s\n", ptr);
-	free(ptr);
-}
+// 	teste = "a";
+// 	ptr = ft_itoa_address(&teste);
+// 	printf("%p\n", &teste);
+// 	printf("%s\n", ptr);
+// 	free(ptr);
+// }

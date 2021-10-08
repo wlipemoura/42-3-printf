@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/07 20:35:31 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/08 14:13:37 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,34 +58,11 @@
 # include <stdlib.h>
 #include <stdio.h>
 
-static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars);
 char	*ft_itoa_address(void *address);
-int    ft_putnbrm(int number, int fd);
+int    ft_putnbrm(int n, int fd);
 int	ft_putcharm(char c, int fd);
 int	ft_putstrm(char *s, int fd);
-
-int	ft_printf(const char *fmt, ...)
-{
-	va_list ap;
-	int 	printed_chars;
-
-	printed_chars = 0;
-	//printf("teste aqui1\n");
-	va_start(ap, fmt);
-	while (*fmt)
-	{
-		if (placeholder_identifier(&fmt, ap, &printed_chars))
-		{
-			fmt++;
-			continue;
-		}
-		write(1, fmt, 1);
-		fmt++;
-	}
-	va_end(ap);
-	//printf("teste aqui2\n");
-	return (printed_chars);
-}
+int	ft_putunbrm(unsigned int n, int fd);
 
 static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 {
@@ -106,12 +83,33 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 		else if (**fmt == 'u')
 			cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
 		else if (**fmt == 'x')
-			cnt_chars += ft_putstrm(wm_itoa_base(va_arg(ap, int), 16), 1);
+			cnt_chars += ft_putstrm(ft_itoa_base(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'X')
-			cnt_chars += ft_putstrm(wm_itoa_base_upper(va_arg(ap, int), 16), 1);
+			cnt_chars += ft_putstrm(ft_itoa_base_upper(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'p')
 			cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, void *)), 1);
 		return (1);
 	}
 	return (0);
+}
+
+int	ft_printf(const char *fmt, ...)
+{
+	va_list ap;
+	int 	printed_chars;
+
+	printed_chars = 0;
+	va_start(ap, fmt);
+	while (*fmt)
+	{
+		if (placeholder_identifier(&fmt, ap, &printed_chars))
+		{
+			fmt++;
+			continue;
+		}
+		write(1, fmt, 1);
+		fmt++;
+	}
+	va_end(ap);
+	return (printed_chars);
 }
