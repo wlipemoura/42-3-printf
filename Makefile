@@ -5,44 +5,49 @@
 # 	Makefile must compile the library by using its Makefile, then compile the project.
 # clang -Wall -Wextra -Werror main.c ft_printf.c -L libft/ -lft
 
-NAME = libprintf.a
+NAME = libftprintf.a
 
-INC = libprintf.h
+INC = libftprintf.h
 
 CC = clang
 
 CFLAGS = -Wall -Wextra -Werror -c
 
-LFLAGS = -Wall -Wextra -Werror -o #confirm these flags
-
 RM = rm -f
 
-SRC = ft_printf.c \
+SRC = \
+	ft_printf.c \
 	ft_itoa_address.c \
 	ft_putsomething.c
 
-OBJ = $(SRC: .c=.o)
+OBJ = $(SRC:.c=.o)
 
 INCLUDE = -L ../../42-1-libft-complete/42-1-libft -lft
 
-compile:
-	$(CC) $(CFLAGS) $(SRC) 
+MAKE = make -C libraries/libft
 
-link: compile $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) $(INCLUDE)
+.c.o:
+	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
 
-all:
-	echo "Hello!"
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-$(NAME):
+all:	$(NAME) libft
 
 clean:
 	$(RM) *.o
+	$(MAKE) clean
 
-fclean:
+fclean:	clean
+	$(RM) $(NAME)
+	$(MAKE) fclean
 
-re:
+re:	fclean all
+	$(MAKE) re
 
-libft:
+.PHONY:	all clean fclean re
+
+libft: 
+	$(MAKE)
 
 test:

@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/08 14:13:37 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/08 23:05:20 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,8 @@
 //				2.1.1.1 write with the value of va_arg. (after this reading va_arg skip to next arg)
 //		2.2 else write(1, fmt, 1)
 
-//#include "printf.h"
-#include "../../42-1-libft-complete/42-1-libft/libft.h"
-#include <stdarg.h> // va_start, va_end, va_copy and va_arg. type va_list
-# include <unistd.h>
-# include <stdlib.h>
-#include <stdio.h>
+#include "libftprintf.h"
+# include "libraries/libft/libft.h"
 
 char	*ft_itoa_address(void *address);
 int    ft_putnbrm(int n, int fd);

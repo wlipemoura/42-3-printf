@@ -1,5 +1,5 @@
-#include "../../42-1-libft-complete/42-1-libft/libft.h"
-#include <stdio.h>
+#include "libftprintf.h"
+# include "libraries/libft/libft.h"
 
 int	ft_putcharm(char c, int fd)
 {

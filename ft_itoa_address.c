@@ -1,7 +1,5 @@
-#include "../../42-1-libft-complete/42-1-libft/libft.h"
-#include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include "libftprintf.h"
+# include "libraries/libft/libft.h"
 
 char	*ft_itoa_address(void *address)
 {
