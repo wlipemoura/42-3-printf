@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 16:08:29 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 17:12:26 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@
 //		2.2 else write(1, fmt, 1)
 
 #include "libftprintf.h"
-# include "libraries/libft/libft.h"
 # include <stdio.h>
 
 char	*ft_itoa_address(void *address);
