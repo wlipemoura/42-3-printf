@@ -1,4 +1,5 @@
 #include "libftprintf.h"
+#include <stdio.h>
 
 char	*ft_itoa_address(void *address)
 {
@@ -9,6 +10,7 @@ char	*ft_itoa_address(void *address)
 
 	prefix = "0x";
 	new_variable = (unsigned long) address;
+	printf("Aqui: %lu", new_variable);
 	temp = ft_itoa_base(new_variable, 16);
 	returning= ft_strjoin(prefix, temp);
 	free(temp);
