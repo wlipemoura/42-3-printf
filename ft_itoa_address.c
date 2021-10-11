@@ -7,6 +7,8 @@ char	*ft_itoa_address(void *address)
 	char	*temp;
 	char	*returning;
 
+	if (!address)
+		return (NULL);
 	prefix = "0x";
 	new_variable = (unsigned long) address;
 	temp = ft_itoa_base(new_variable, 16);

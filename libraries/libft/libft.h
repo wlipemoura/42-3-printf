@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 20:39:26 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/08 12:57:03 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 18:47:43 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -442,7 +442,7 @@ void	ft_putunbr_fd(unsigned int n, int fd);
  */
 int		ft_power(int basis, size_t exponent);
 
-char	*ft_itoa_base(unsigned int number, unsigned int base);
+char	*ft_itoa_base(unsigned long int number, unsigned int base);
 
 char	*ft_itoa_base_upper(unsigned int number, unsigned int base);
 
