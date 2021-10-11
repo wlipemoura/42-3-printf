@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int	ft_countdigits(unsigned int integer, unsigned int base)
+static int	ft_countdigits(unsigned long int integer, unsigned int base)
 {
 	size_t	thismanychars;
 
