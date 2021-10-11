@@ -13,7 +13,7 @@ static int	ft_countdigits(unsigned int integer, unsigned int base)
 	return (thismanychars);
 }
 
-char	*ft_itoa_base(unsigned int number, unsigned int base)
+char	*ft_itoa_base(unsigned long int number, unsigned int base)
 {
 	char			*converted_number;
 	size_t			thismanychars;

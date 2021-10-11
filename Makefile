@@ -51,8 +51,8 @@ re:	fclean all
 
 .PHONY:	all clean fclean re
 
-libft: 
+libft:
 	$(LIBRARIES)
 
 test: all
-	$(TESTER)/tester m  
+	$(TESTER)/tester m
