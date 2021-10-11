@@ -17,7 +17,7 @@ int	ft_putstrm(char *s, int fd)
 	return(ft_strlen(s));
 }
 
- static void	ft_write_nbr(unsigned int n, int *howmanychars, int fd)
+static void	ft_write_nbr(unsigned int n, int *howmanychars, int fd)
 {
 	int		leftovers;
 	char	converted_digit;
