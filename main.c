@@ -13,7 +13,7 @@ int	main(void)
 
 	// str = "test";
 	// c = 't';
-	// h = 0x42451;
+	// h = 0xffffffffffffffff;
 	// i = 42;
 	// d = -1;
 	// l = 2294967290; // Buscar qual o menor negativo que o unsigned converte entre -2000000000 -3000000000
