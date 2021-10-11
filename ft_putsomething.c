@@ -10,7 +10,10 @@ int	ft_putcharm(char c, int fd)
 int	ft_putstrm(char *s, int fd)
 {
 	if (!s)
-		return ('\0');
+	{
+		write (fd, "(null)", 6);
+		return (6);
+	}
 	write (fd, s, ft_strlen(s));
 	return(ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/08 23:05:20 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 16:08:29 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 
 #include "libftprintf.h"
 # include "libraries/libft/libft.h"
+# include <stdio.h>
 
 char	*ft_itoa_address(void *address);
 int    ft_putnbrm(int n, int fd);
@@ -66,24 +67,24 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 	{
 		(*fmt)++;
 		if (**fmt == 's')
-			cnt_chars += ft_putstrm(va_arg(ap, char *), 1);
+			*cnt_chars += ft_putstrm(va_arg(ap, char *), 1);
 		else if (**fmt == 'c')
-			cnt_chars += ft_putcharm(va_arg(ap, int), 1); // Por que não aceita tipo char?
+			*cnt_chars += ft_putcharm(va_arg(ap, int), 1); // Por que não aceita tipo char?
 		else if (**fmt == 'd' || **fmt == 'i')
-			cnt_chars += ft_putnbrm(va_arg(ap, int), 1);
+			*cnt_chars += ft_putnbrm(va_arg(ap, int), 1);
 		else if (**fmt == '%')
 		{
 			write(1, "%", 1);
-			cnt_chars++;
+			(*cnt_chars)++;
 		}
 		else if (**fmt == 'u')
-			cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
+			*cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
 		else if (**fmt == 'x')
-			cnt_chars += ft_putstrm(ft_itoa_base(va_arg(ap, int), 16), 1);
+			*cnt_chars += ft_putstrm(ft_itoa_base(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'X')
-			cnt_chars += ft_putstrm(ft_itoa_base_upper(va_arg(ap, int), 16), 1);
+			*cnt_chars += ft_putstrm(ft_itoa_base_upper(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'p')
-			cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, void *)), 1);
+			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, void *)), 1);
 		return (1);
 	}
 	return (0);
@@ -104,6 +105,7 @@ int	ft_printf(const char *fmt, ...)
 			continue;
 		}
 		write(1, fmt, 1);
+		printed_chars++;
 		fmt++;
 	}
 	va_end(ap);

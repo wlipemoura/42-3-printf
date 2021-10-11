@@ -22,32 +22,37 @@ SRC = \
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = -L ../../42-1-libft-complete/42-1-libft -lft
+INCLUDE = libraries/libft
 
-MAKE = make -C libraries/libft
+LIBRARIES = make -C libraries/libft
+
+TESTER = ./ft_printf_tester
 
 .c.o:
 	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
 
 $(NAME): $(OBJ)
+	$(LIBRARIES)
+	cp $(INCLUDE)/libft.a ./$(NAME)
 	ar rcs $(NAME) $(OBJ)
 
-all:	$(NAME) libft
+all:	$(NAME)
 
 clean:
 	$(RM) *.o
-	$(MAKE) clean
+	$(LIBRARIES) clean
 
 fclean:	clean
 	$(RM) $(NAME)
-	$(MAKE) fclean
+	$(LIBRARIES) fclean
 
 re:	fclean all
-	$(MAKE) re
+	$(LIBRARIES) re
 
 .PHONY:	all clean fclean re
 
 libft: 
-	$(MAKE)
+	$(LIBRARIES)
 
-test:
+test: all
+	$(TESTER)/tester m  
