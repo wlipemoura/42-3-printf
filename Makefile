@@ -26,7 +26,7 @@ INCLUDE = libraries/libft
 
 LIBRARIES = make -C libraries/libft
 
-TESTER = ./ft_printf_tester
+TESTER = ./tester
 
 .c.o:
 	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
