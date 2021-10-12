@@ -6,14 +6,14 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:00:38 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 16:02:39 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:23:28 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "libraries/libft/libft.h"
+# include "libraries/libft.h"
 # include <stdarg.h>
 
 int		ft_putcharm(char c, int fd);
