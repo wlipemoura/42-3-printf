@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 20:55:50 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 21:17:12 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 		else if (**fmt == 'X')
 			*cnt_chars += ft_putstrm(ft_itoa_base_upper(va_arg(ap, int), 16), 1);
 		else if (**fmt == 'p')
-			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, unsigned long long)), 1);
+			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, unsigned long)), 1);
 		return (1);
 	}
 	return (0);
@@ -90,7 +90,7 @@ int	ft_printf(const char *fmt, ...)
 
 	printed_chars = 0;
 	va_start(ap, fmt);
-	printf("bizarro = %Lu\n", va_arg(ap, unsigned long long));
+	//printf("bizarro = %Lu\n", va_arg(ap, unsigned long long));
 	while (*fmt)
 	{
 		if (placeholder_identifier(&fmt, ap, &printed_chars))
