@@ -6,7 +6,7 @@ int	ft_putcharm(char c, int fd)
 	return(1);
 }
 
-int	ft_putstrm(char *s, int fd)
+int	ft_putstrm(char *s, int fd, int flag)
 {
 	int	len;
 
@@ -17,7 +17,8 @@ int	ft_putstrm(char *s, int fd)
 	}
 	write (fd, s, ft_strlen(s));
 	len = ft_strlen(s);
-	free(s);
+	if (flag == 1)
+		free(s);
 	return(len);
 }
 

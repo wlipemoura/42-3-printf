@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 21:58:45 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 15:10:03 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 	{
 		(*fmt)++;
 		if (**fmt == 's')
-			*cnt_chars += ft_putstrm(va_arg(ap, char *), 1);
+			*cnt_chars += ft_putstrm(va_arg(ap, char *), 1, 0);
 		else if (**fmt == 'c')
 			*cnt_chars += ft_putcharm(va_arg(ap, int), 1); // Por que não aceita tipo char?
 		else if (**fmt == 'd' || **fmt == 'i')
@@ -81,11 +81,11 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 		else if (**fmt == 'u')
 			*cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
 		else if (**fmt == 'x')
-			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 0), 1);
+			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 0), 1, 0);
 		else if (**fmt == 'X')
-			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 1), 1);
+			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 1), 1, 0);
 		else if (**fmt == 'p')
-			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, unsigned long)), 1);
+			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, unsigned long)), 1, 1);
 		return (1);
 	}
 	return (0);
