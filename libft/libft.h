@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 20:39:26 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 21:44:48 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:57:14 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -391,7 +391,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @return The string created from the successive applications of 'f'.
  * @return NULL if the allocation fails.
  */
-char	*ft_strmapi(char const *s, char(*f)(unsigned int, char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @brief Allocates (with malloc) and returns a copy of 's1' with each of the
