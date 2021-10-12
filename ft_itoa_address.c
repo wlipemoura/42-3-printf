@@ -9,7 +9,7 @@ char	*ft_itoa_address(unsigned long address)
 
 	prefix = "0x";
 	temp = ft_itoa_base(address, 16);
-	returning= ft_strjoin(prefix, temp);
+	returning = ft_strjoin(prefix, temp);
 	free(temp);
 	return (returning);
 }

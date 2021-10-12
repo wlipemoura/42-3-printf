@@ -9,5 +9,6 @@ int		ft_putstrm(char *s, int fd);
 int		ft_putnbrm(int n, int fd);
 int		ft_putunbrm(unsigned int n, int fd);
 char	*ft_itoa_address(unsigned long address);
+int	ft_printf(const char *fmt, ...);
 
 #endif

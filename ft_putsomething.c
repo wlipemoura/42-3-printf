@@ -8,13 +8,17 @@ int	ft_putcharm(char c, int fd)
 
 int	ft_putstrm(char *s, int fd)
 {
+	int	len;
+
 	if (!s)
 	{
 		write (fd, "(null)", 6);
 		return (6);
 	}
 	write (fd, s, ft_strlen(s));
-	return(ft_strlen(s));
+	len = ft_strlen(s);
+	free(s);
+	return(len);
 }
 
 static void	ft_write_nbr(unsigned int n, int *howmanychars, int fd)
