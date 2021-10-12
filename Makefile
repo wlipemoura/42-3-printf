@@ -1,9 +1,14 @@
-# Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.
-# -Wall, -Wextra and -Werror
-# If your project allows you to use your libft, you must copy its sources and its
-# 	associated Makefile in a libft folder with its associated Makefile. Your project’s
-# 	Makefile must compile the library by using its Makefile, then compile the project.
-# clang -Wall -Wextra -Werror main.c ft_printf.c -L libft/ -lft
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/12 16:26:54 by wfelipe-          #+#    #+#              #
+#    Updated: 2021/10/12 16:27:38 by wfelipe-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = libftprintf.a
 
@@ -22,9 +27,9 @@ SRC = \
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = /libft
+INCLUDE = libft
 
-LIBRARIES = make -C /libft
+LIBRARIES = make -C libft
 
 TESTER = ./tester
 
