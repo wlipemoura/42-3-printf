@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int	ft_countdigits(unsigned long long int integer, unsigned int base)
+static int	ft_countdigits(unsigned long int integer, unsigned int base)
 {
 	size_t	thismanychars;
 
@@ -13,12 +13,12 @@ static int	ft_countdigits(unsigned long long int integer, unsigned int base)
 	return (thismanychars);
 }
 
-char	*ft_itoa_base(unsigned long long int number, unsigned int base)
+char	*ft_itoa_base(unsigned long int number, unsigned int base)
 {
 	char				*converted_number;
 	size_t				thismanychars;
 	char				*ptr;
-	unsigned long long int	leftovers;
+	unsigned long int	leftovers;
 	char				*representation;
 
 	representation = "0123456789abcdef";
