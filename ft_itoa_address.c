@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_address.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 16:03:40 by wfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/12 16:03:45 by wfelipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
-#include <stdio.h>
 
 char	*ft_itoa_address(unsigned long address)
 {
@@ -13,15 +24,3 @@ char	*ft_itoa_address(unsigned long address)
 	free(temp);
 	return (returning);
 }
-
-// int	main(void)
-// {
-// 	char *teste;
-// 	char *ptr;
-
-// 	teste = "a";
-// 	ptr = ft_itoa_address(&teste);
-// 	printf("%p\n", &teste);
-// 	printf("%s\n", ptr);
-// 	free(ptr);
-// }

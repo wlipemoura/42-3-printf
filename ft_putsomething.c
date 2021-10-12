@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putsomething.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 15:58:15 by wfelipe-          #+#    #+#             */
+/*   Updated: 2021/10/12 15:59:01 by wfelipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 int	ft_putcharm(char c, int fd)
 {
 	write (fd, &c, 1);
-	return(1);
+	return (1);
 }
 
 int	ft_putstrm(char *s, int fd, int flag)
@@ -19,7 +31,7 @@ int	ft_putstrm(char *s, int fd, int flag)
 	len = ft_strlen(s);
 	if (flag == 1)
 		free(s);
-	return(len);
+	return (len);
 }
 
 static void	ft_write_nbr(unsigned int n, int *howmanychars, int fd)
@@ -58,7 +70,7 @@ int	ft_putnbrm(int n, int fd)
 	else
 		integer = n;
 	ft_write_nbr(integer, &howmanychars, fd);
-	return(howmanychars);
+	return (howmanychars);
 }
 
 int	ft_putunbrm(unsigned int n, int fd)
@@ -81,5 +93,5 @@ int	ft_putunbrm(unsigned int n, int fd)
 	else
 		integer = n;
 	ft_write_nbr(integer, &howmanychars, fd);
-	return(howmanychars);
+	return (howmanychars);
 }

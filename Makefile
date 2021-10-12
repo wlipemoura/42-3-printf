@@ -22,9 +22,9 @@ SRC = \
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = libraries/libft
+INCLUDE = /libft
 
-LIBRARIES = make -C libraries/libft
+LIBRARIES = make -C /libft
 
 TESTER = ./tester
 
