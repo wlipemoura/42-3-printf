@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 17:48:14 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/11 21:28:03 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/11 21:58:45 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@
 #include "libftprintf.h"
 # include <stdio.h>
 
+char	*ft_printhex(unsigned int number, int flag)
+{
+	if (flag == 1)
+		return (ft_itoa_base_upper(number, 16));
+	else
+		return (ft_itoa_base(number, 16));
+}
+
 static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 {
 	if (**fmt == '%')
@@ -73,9 +81,9 @@ static int	placeholder_identifier(const char **fmt, va_list ap, int *cnt_chars)
 		else if (**fmt == 'u')
 			*cnt_chars += ft_putunbrm(va_arg(ap, int), 1);
 		else if (**fmt == 'x')
-			*cnt_chars += ft_putstrm(ft_itoa_base(va_arg(ap, unsigned int), 16), 1);
+			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 0), 1);
 		else if (**fmt == 'X')
-			*cnt_chars += ft_putstrm(ft_itoa_base_upper(va_arg(ap, unsigned int), 16), 1);
+			*cnt_chars += ft_putstrm(ft_printhex(va_arg(ap, unsigned int), 1), 1);
 		else if (**fmt == 'p')
 			*cnt_chars += ft_putstrm(ft_itoa_address(va_arg(ap, unsigned long)), 1);
 		return (1);
