@@ -5,6 +5,8 @@ static int	ft_countdigits(unsigned long int integer, unsigned int base)
 	size_t	thismanychars;
 
 	thismanychars = 0;
+	if (integer == 0)
+		return (1);
 	while (integer)
 	{
 		thismanychars++;
