@@ -13,13 +13,13 @@ static int	ft_countdigits(unsigned long int integer, unsigned int base)
 	return (thismanychars);
 }
 
-char	*ft_itoa_base(unsigned long int number, unsigned int base)
+char	*ft_itoa_base(unsigned long number, unsigned base)
 {
-	char				*converted_number;
-	size_t				thismanychars;
-	char				*ptr;
-	unsigned long int	leftovers;
-	char				*representation;
+	char			*converted_number;
+	size_t			thismanychars;
+	char			*ptr;
+	unsigned long 	leftovers;
+	char			*representation;
 
 	representation = "0123456789abcdef";
 	thismanychars = ft_countdigits(number, base);
