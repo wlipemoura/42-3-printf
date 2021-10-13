@@ -6,7 +6,7 @@
 #    By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:26:54 by wfelipe-          #+#    #+#              #
-#    Updated: 2021/10/12 16:27:38 by wfelipe-         ###   ########.fr        #
+#    Updated: 2021/10/12 22:34:30 by wfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,16 +47,16 @@ clean:
 	$(RM) *.o
 	$(LIBRARIES) clean
 
-fclean:	clean
+fclean:
+	$(RM) *.o
 	$(RM) $(NAME)
 	$(LIBRARIES) fclean
 
 re:	fclean all
-	$(LIBRARIES) re
 
 .PHONY:	all clean fclean re
 
-libft:
+libftexec:
 	$(LIBRARIES)
 
 test: all

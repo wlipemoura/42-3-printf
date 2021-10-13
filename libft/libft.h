@@ -6,7 +6,7 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 20:39:26 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 16:57:14 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/12 20:51:05 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -324,7 +324,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 /**
- * @brief Outputs the integer 's' to the given file descriptor.
+ * @brief Outputs the integer 'n' to the given file descriptor.
  *
  * @param n Is the integer to output.
  * @param fd Is the File Descriptor on which to write.
@@ -442,8 +442,27 @@ void	ft_putunbr_fd(unsigned int n, int fd);
  */
 int		ft_power(int basis, size_t exponent);
 
+/**
+ * @brief Converts an integer into a string formated for a determined
+ * basis. It can be base 10 or base 16.
+ *
+ * @param number Is the integer you must to convert into a string.
+ * @param base Is the base (10 or 16) for which you want to convert the number.
+ *
+ * @return a pointer to the converted string.
+ */
 char	*ft_itoa_base(unsigned long int number, unsigned int base);
 
+/**
+ * @brief Converts an integer into a string formated for a determined
+ * basis. It can be base 10 or base 16.
+ *
+ * @param number Is the integer you must to convert into a string.
+ * @param base Is the base (10 or 16) for which you want to convert the number.
+ *
+ * @return a pointer to the converted string, but if the base is 16,
+ * letters used to represent the numbers will be uppercased.
+ */
 char	*ft_itoa_base_upper(unsigned int number, unsigned int base);
 
 #endif
