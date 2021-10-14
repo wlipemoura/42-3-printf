@@ -6,7 +6,7 @@
 #    By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:26:54 by wfelipe-          #+#    #+#              #
-#    Updated: 2021/10/14 16:29:08 by wfelipe-         ###   ########.fr        #
+#    Updated: 2021/10/14 16:44:50 by wfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INC = ft_printf.h
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -34,7 +34,7 @@ LIBRARIES = make -C libft
 TESTER = ./tester
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJ)
 	$(LIBRARIES)
@@ -61,3 +61,6 @@ libftexec:
 
 test: all
 	$(TESTER)/tester m
+
+main:
+	$(CC) $(CFLAGS) ../apps/main.c $(NAME)
