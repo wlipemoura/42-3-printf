@@ -6,11 +6,11 @@
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:58:15 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 15:59:01 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:33:33 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putcharm(char c, int fd)
 {
@@ -75,8 +75,7 @@ int	ft_putnbrm(int n, int fd)
 
 int	ft_putunbrm(unsigned int n, int fd)
 {
-	unsigned int	integer;
-	int				howmanychars;
+	int	howmanychars;
 
 	howmanychars = 0;
 	if (n == 0)
@@ -84,14 +83,6 @@ int	ft_putunbrm(unsigned int n, int fd)
 		write(fd, "0", 1);
 		howmanychars++;
 	}
-	if (n < 0)
-	{
-		integer = -n;
-		write(fd, "-", 1);
-		howmanychars++;
-	}
-	else
-		integer = n;
-	ft_write_nbr(integer, &howmanychars, fd);
+	ft_write_nbr(n, &howmanychars, fd);
 	return (howmanychars);
 }

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:00:38 by wfelipe-          #+#    #+#             */
-/*   Updated: 2021/10/12 21:06:41 by wfelipe-         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:34:32 by wfelipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft/libft.h"
 # include <stdarg.h>
@@ -65,7 +65,6 @@ int		ft_putunbrm(unsigned int n, int fd);
  * @return a pointer to the converted string (always begins by '0x').
  */
 char	*ft_itoa_address(unsigned long address);
-
 
 int		ft_printf(const char *fmt, ...);
 

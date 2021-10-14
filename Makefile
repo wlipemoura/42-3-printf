@@ -6,13 +6,13 @@
 #    By: wfelipe- < wfelipe-@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:26:54 by wfelipe-          #+#    #+#              #
-#    Updated: 2021/10/13 08:17:35 by wfelipe-         ###   ########.fr        #
+#    Updated: 2021/10/14 16:29:08 by wfelipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-INC = libftprintf.h
+INC = ft_printf.h
 
 CC = clang
 
